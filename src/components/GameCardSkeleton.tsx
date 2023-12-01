@@ -2,13 +2,16 @@ import { Card, CardBody, Skeleton, SkeletonText } from "@chakra-ui/react";
 
 function GameCardSkeleton() {
     return (
-        <Card maxW="600px" paddingX="auto" borderRadius={10} overflow="hidden">
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Card maxWidth="600px" borderRadius={10} overflow="hidden">
             <Skeleton height="300px" width="600px" />
             <CardBody>
-                <SkeletonText />
+              <SkeletonText />
             </CardBody>
-        </Card>
-    );
+          </Card>
+        </div>
+
+      );
 }
 
 export default GameCardSkeleton;
