@@ -1,8 +1,19 @@
-import { HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
-import useGenres from "../hooks/useGenres";
+import {
+    HStack,
+    Image,
+    List,
+    ListItem,
+    Spinner,
+    Button,
+} from "@chakra-ui/react";
+import useGenres, { Genre } from "../hooks/useGenres";
 import croppedImageUrl from "../services/image-url";
 
-function GenreList() {
+interface Props {
+    onSelectGenre: (genre: Genre) => void;
+}
+
+function GenreList({ onSelectGenre }: Props) {
     const { data: genres, isLoading, error } = useGenres();
 
     if (isLoading) return <Spinner size="lg" color="gray.500" />;
@@ -18,7 +29,15 @@ function GenreList() {
                             borderRadius={8}
                             src={croppedImageUrl(genre.image_background)}
                         />
-                        <Text fontSize="md">{genre.name}</Text>
+                        <Button
+                            onClick={() => onSelectGenre(genre)}
+                            variant="link"
+                            fontSize="sm"
+                        >
+                            {genre.name === "Massively Multiplayer"
+                                ? "MMO"
+                                : genre.name}
+                        </Button>
                     </HStack>
                 </ListItem>
             ))}
