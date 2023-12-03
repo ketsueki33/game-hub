@@ -27,7 +27,7 @@ function App() {
                 lg: "200px 1fr",
             }}
         >
-            <GridItem paddingBottom={4} area="nav">
+            <GridItem paddingY={2} area="nav">
                 <NavBar />
             </GridItem>
             <Show above="lg">
@@ -38,8 +38,8 @@ function App() {
                     />
                 </GridItem>
             </Show>
-            <GridItem area="main">
-                <HStack spacing={5} paddingLeft={9}>
+            <GridItem area="main" paddingTop={2}>
+                <HStack spacing={5} paddingX={9}>
                     <PlatformSelector
                         selectedPlatform={gameQuery.platform}
                         onSelectPlatform={(platform) =>
