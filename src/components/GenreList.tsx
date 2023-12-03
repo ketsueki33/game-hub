@@ -22,9 +22,13 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
     if (isLoading) return <Spinner size="lg" color="gray.500" />;
 
     if (error) return null;
+
     return (
         <>
-            <Heading fontSize="2xl" marginY={1}> Genres</Heading>
+            <Heading fontSize="2xl" marginY={1}>
+                {" "}
+                Genres
+            </Heading>
             <List>
                 {genres.map((genre) => (
                     <ListItem key={genre.id} paddingY="6px">
