@@ -31,6 +31,7 @@ const useData = <T>(
                     ...requestConfig,
                 })
                 .then((res) => {
+                    setError("");
                     setData(res.data.results);
                     setLoading(false);
                 })
