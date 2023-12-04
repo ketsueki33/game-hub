@@ -40,22 +40,20 @@ function GameGrid({ gameQuery }: Props) {
         );
 
     return (
-        <>
-            <SimpleGrid
-                columns={{
-                    sm: 1,
-                    md: 2,
-                    lg: 3,
-                    xl: 4,
-                }}
-                paddingY={10}
-                spacing={7}
-            >
-                {games.map((game) => (
-                    <GameCard game={game} key={game.id} />
-                ))}
-            </SimpleGrid>
-        </>
+        <SimpleGrid
+            columns={{
+                sm: 1,
+                md: 2,
+                lg: 3,
+                xl: 4,
+            }}
+            paddingY={10}
+            spacing={7}
+        >
+            {games.map((game) => (
+                <GameCard game={game} key={game.id} />
+            ))}
+        </SimpleGrid>
     );
 }
 
