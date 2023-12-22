@@ -4,7 +4,7 @@ function GameCardSkeleton() {
     return (
         <Box display="flex" justifyContent="center">
             <Card maxWidth="600px" borderRadius={10} overflow="hidden">
-                <Skeleton height="300px" width="600px" />
+                <Skeleton height="300px" width="90vw" />
                 <CardBody>
                     <SkeletonText />
                 </CardBody>
