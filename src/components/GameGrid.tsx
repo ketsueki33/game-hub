@@ -34,7 +34,7 @@ function GameGrid({ gameQuery }: Props) {
         return (
             <Box padding={20} textAlign="center">
                 <Text color="tomato" fontSize="2xl">
-                    {error}
+                    {error.message}
                 </Text>
             </Box>
         );
@@ -50,7 +50,7 @@ function GameGrid({ gameQuery }: Props) {
             paddingY={10}
             spacing={7}
         >
-            {games.map((game) => (
+            {games.results.map((game) => (
                 <GameCard game={game} key={game.id} />
             ))}
         </SimpleGrid>

@@ -26,11 +26,10 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
     return (
         <>
             <Heading fontSize="2xl" marginY={1}>
-                {" "}
                 Genres
             </Heading>
             <List>
-                {genres.map((genre) => (
+                {genres.results.map((genre) => (
                     <ListItem key={genre.id} paddingY="6px">
                         <HStack as={Link} onClick={() => onSelectGenre(genre)}>
                             <Image
