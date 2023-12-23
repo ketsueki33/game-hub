@@ -13,10 +13,10 @@ import croppedImageUrl from "../services/image-url";
 
 interface Props {
     onSelectGenre: (genre: Genre) => void;
-    selectedGenre: Genre | null;
+    selectedGenreId?: number;
 }
 
-function GenreList({ onSelectGenre, selectedGenre }: Props) {
+function GenreList({ onSelectGenre, selectedGenreId }: Props) {
     const { data: genres, isLoading, error } = useGenres();
 
     if (isLoading) return <Spinner size="lg" color="gray.500" />;
@@ -41,7 +41,7 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
                             <Text
                                 fontSize="sm"
                                 fontWeight={
-                                    selectedGenre?.id === genre.id ? "bold" : "lighter"
+                                    selectedGenreId === genre.id ? "bold" : "lighter"
                                 }
                             >
                                 {genre.name === "Massively Multiplayer"
