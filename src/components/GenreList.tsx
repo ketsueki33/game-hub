@@ -13,10 +13,10 @@ import croppedImageUrl from "../services/image-url";
 
 interface Props {
     onSelectGenre: (genre: Genre) => void;
-    selectedGenre: Genre | null;
+    selectedGenreId?: number;
 }
 
-function GenreList({ onSelectGenre, selectedGenre }: Props) {
+function GenreList({ onSelectGenre, selectedGenreId }: Props) {
     const { data: genres, isLoading, error } = useGenres();
 
     if (isLoading) return <Spinner size="lg" color="gray.500" />;
@@ -26,11 +26,10 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
     return (
         <>
             <Heading fontSize="2xl" marginY={1}>
-                {" "}
                 Genres
             </Heading>
             <List>
-                {genres.map((genre) => (
+                {genres.results.map((genre) => (
                     <ListItem key={genre.id} paddingY="6px">
                         <HStack as={Link} onClick={() => onSelectGenre(genre)}>
                             <Image
@@ -42,7 +41,7 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
                             <Text
                                 fontSize="sm"
                                 fontWeight={
-                                    selectedGenre?.id === genre.id ? "bold" : "lighter"
+                                    selectedGenreId === genre.id ? "bold" : "lighter"
                                 }
                             >
                                 {genre.name === "Massively Multiplayer"
