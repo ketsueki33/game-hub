@@ -18,6 +18,9 @@ export interface GameQuery {
 
 function App() {
     const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+    const resetGameQuery = () => {
+        setGameQuery({} as GameQuery);
+    };
     return (
         <Grid
             templateAreas={{
@@ -31,6 +34,7 @@ function App() {
         >
             <GridItem padding={2} area="nav">
                 <NavBar
+                    resetGameQuery={resetGameQuery}
                     onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
                 />
             </GridItem>
