@@ -5,13 +5,16 @@ import SearchInput from "./SearchInput";
 
 interface Props {
     onSearch: (searchText: string) => void;
-    resetGameQuery: () => void;
 }
 
-function NavBar({ onSearch, resetGameQuery}: Props) {
+function NavBar({ onSearch }: Props) {
     return (
         <HStack>
-            <IconButton onClick={resetGameQuery} margin={1} aria-label="refresh button">
+            <IconButton
+                onClick={() => window.location.reload()}
+                margin={1}
+                aria-label="refresh button"
+            >
                 <Image src={icon} width="80px" />
             </IconButton>
             <SearchInput onSearch={onSearch} />
