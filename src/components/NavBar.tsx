@@ -10,13 +10,13 @@ interface Props {
 function NavBar({ onSearch }: Props) {
     return (
         <HStack>
-            <IconButton
+            <Image
+                aria-label="refresh-button"
+                cursor="pointer"
                 onClick={() => window.location.reload()}
-                margin={1}
-                aria-label="refresh button"
-            >
-                <Image src={icon} width="80px" />
-            </IconButton>
+                src={icon}
+                boxSize="60px"
+            />
             <SearchInput onSearch={onSearch} />
             <ColorModeSwitch />
         </HStack>
