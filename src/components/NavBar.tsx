@@ -5,7 +5,7 @@ import SearchInput from "./SearchInput";
 
 function NavBar() {
     return (
-        <HStack>
+        <HStack padding={2}>
             <Image
                 aria-label="refresh-button"
                 cursor="pointer"
